@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import * as types from './constants'
 import axios from 'axios'
-import objectAssign from 'object-assign'
 
 Vue.use(Vuex)
 
@@ -46,8 +45,7 @@ const mutations = {
 
     state.users.forEach((currentUser) => {
       if(currentUser.id === id) {
-        currentUser.name = user.name
-        currentUser.tel = user.tel
+        currentUser = {...user}
       }
     })
   },
